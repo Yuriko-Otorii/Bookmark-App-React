@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Card, message } from 'antd'
+import { Card, message, Row, Col } from 'antd'
 import axios from 'axios'
 
 import EditModal from '../components/EditModal'
@@ -46,15 +46,15 @@ function List() {
 
   const putBookmark = async (targetId, newData) => {
     const newBookmark = {
-      bookmark : {
+      bookmark: {
         url: modalData.url,
         title: newData.title,
         category: newData.category,
         date: modalData.date,
       },
-      id: targetId
+      id: targetId,
     }
-    
+
     setModalEditLoading(true)
     setTimeout(() => {
       setModalEditLoading(false)
@@ -68,40 +68,42 @@ function List() {
     await axios.put('http://localhost:3100/bookmarks/' + targetId, newBookmark)
   }
 
-  const deleteBookmark = async (targeId) => {  
+  const deleteBookmark = async (targeId) => {
     await axios.delete('http://localhost:3100/bookmarks/' + targeId)
     await messageApi.open({
       type: 'success',
       content: 'Successfully deleted.',
     })
-
-  } 
+  }
 
   return (
     <>
       {contextHolder}
       <div className={listStyle['List-body']}>
         <h2>Bookmark list</h2>
-        {bookmarks.map((item) => {
-          return (
-            <Card
-              key={item.id}
-              title={item.bookmark.title}
-              extra={
-                <CardButton
-                  eachItem={item}
-                  showModalFn={showModal}
-                  deleteFn={deleteBookmark}
-                />
-              }
-              className={listStyle['List-card']}
-              eachbookmark={item}
-            >
-              <p>Category: {item.bookmark.category}</p>
-              <p>Added date: {item.bookmark.date}</p>
-            </Card>
-          )
-        })}
+        <Row type="flex" justify="center">
+          {bookmarks.map((item) => {
+            return (
+              <Col key={item.id} sm={24} md={10} xl={8}>
+                <Card
+                  title={item.bookmark.title}
+                  extra={
+                    <CardButton
+                      eachItem={item}
+                      showModalFn={showModal}
+                      deleteFn={deleteBookmark}
+                    />
+                  }
+                  eachbookmark={item}
+                  className={listStyle['List-card']}
+                >
+                  <p>Category: {item.bookmark.category}</p>
+                  <p>Added date: {item.bookmark.date}</p>
+                </Card>
+              </Col>
+            )
+          })}
+        </Row>
         <EditModal
           openState={open}
           modalEditLoadingState={modalEditLoading}
@@ -116,3 +118,5 @@ function List() {
 }
 
 export default List
+
+//https://qiita.com/sand/items/dd420202e6c7daaea667

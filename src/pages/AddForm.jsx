@@ -69,7 +69,7 @@ function AddForm() {
       {contextHolder}
       <div className={formStyle['AddForm-body']}>
         <h2 className={formStyle['AddForm-h2']}>New Bookmark</h2>
-        <Form>
+        <Form className={formStyle['AddForm-form']}>
           <Form.Item label="Url" labelCol={{ span: 5 }} labelAlign="left">
             <Input
               placeholder="Url"

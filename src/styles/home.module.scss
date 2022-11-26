@@ -8,3 +8,31 @@
 .Home-title{
     margin-top: 5rem;
 }
+
+.Home-morning-background{
+    background-image: url(../images/morning.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 89vh;
+    display: flex;
+    justify-content: center;
+}
+
+.Home-noon-background{
+    background-image: url(../images/afternoon.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 89vh;
+    display: flex;
+    justify-content: center;
+}
+
+.Home-night-background{
+    background-image: url(../images/night.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 89vh;
+    display: flex;
+    justify-content: center;
+    color: white;
+}

@@ -67,7 +67,7 @@ function SignUp() {
     <>
       <div className={signUpStyle['Signup-body']}>
         <h2 className={signUpStyle['Signup-title']}>Sign up</h2>
-        <Form onFinish={handleSubmit}>
+        <Form onFinish={handleSubmit} className={signUpStyle['Signup-form']}>
           <Form.Item
             name="username"
             label="User name"
