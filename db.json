@@ -1,0 +1,79 @@
+{
+  "bookmarks": [
+    {
+      "bookmark": {
+        "title": "gsap",
+        "category": "tool"
+      },
+      "id": 1
+    },
+    {
+      "bookmark": {
+        "url": "https://roadmap.sh/react",
+        "title": "react roadmap",
+        "category": "tech",
+        "date": "11/1/2022"
+      },
+      "id": 2
+    },
+    {
+      "bookmark": {
+        "url": "https://unsplash.com/",
+        "title": "Unsplash",
+        "category": "picture",
+        "date": "11/1/2022"
+      },
+      "id": 3
+    },
+    {
+      "bookmark": {
+        "url": "https://coolors.co",
+        "title": "Coolors",
+        "category": "Design",
+        "date": "11/22/2022"
+      },
+      "id": 4
+    },
+    {
+      "bookmark": {
+        "url": "https://fontawesome.com/search",
+        "title": "Font awesome",
+        "category": "Tools",
+        "date": "11/22/2022"
+      },
+      "id": 5
+    },
+    {
+      "bookmark": {
+        "url": "https://cdnjs.com/",
+        "title": "CDN",
+        "category": "tool",
+        "cover": "rgb(252, 161, 100)",
+        "date": "11/23/2022"
+      },
+      "id": 6
+    }
+  ],
+  "categories": [
+    {
+      "category": "All",
+      "id": 1
+    },
+    {
+      "category": "tech",
+      "id": 4
+    },
+    {
+      "category": "css",
+      "id": 5
+    },
+    {
+      "category": "picture",
+      "id": 6
+    },
+    {
+      "category": "test",
+      "id": 7
+    }
+  ]
+}
