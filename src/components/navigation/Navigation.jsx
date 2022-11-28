@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 import { Menu, Button } from 'antd'
 import {
@@ -7,10 +7,10 @@ import {
   FileAddOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons'
-import { signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth'
 
 import navStyle from '../../styles/navigation.module.scss'
-import { auth } from '../../firebase';
+import { auth } from '../../firebase'
 
 function Navigation() {
   const navigate = useNavigate()
@@ -22,22 +22,28 @@ function Navigation() {
   ]
 
   const handleLogout = () => {
-    signOut(auth);
-    navigate('/');
-  };
+    signOut(auth)
+    navigate('/')
+  }
 
   return (
     <>
-    <div className={navStyle["Navigation-wrapper"]}>
-      <Menu
-        items={items}
-        onClick={({ key }) => navigate(key)}
-        mode="horizontal"
-        defaultSelectedKeys={['/']}
-        className={navStyle["Navigation-body"]}
-      />
-      <Button onClick={handleLogout} className={navStyle["Navigation-logout"]}>Log out</Button>
-    </div>
+      <div className={navStyle['Navigation-wrapper']}>
+        <Menu
+          items={items}
+          onClick={({ key }) => navigate(key)}
+          mode="horizontal"
+          defaultSelectedKeys={['/']}
+          className={navStyle['Navigation-body']}
+        />
+        <Button
+          onClick={handleLogout}
+          className={navStyle['Navigation-logout']}
+        >
+          Log out
+        </Button>
+      </div>
+      <Outlet />
     </>
   )
 }

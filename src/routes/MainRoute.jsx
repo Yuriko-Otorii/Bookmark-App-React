@@ -1,7 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-
 import AddForm from '../pages/AddForm'
 import Home from '../pages/Home'
 import List from '../pages/List'
@@ -11,18 +10,15 @@ import Navigation from '../components/navigation/Navigation'
 import { AuthProvider } from '../AuthContext'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
-import MainLayout from '../layout/MainLayout'
 
 function MainRoute() {
-
   return (
     <>
-      {<Navigation />}
-
       <AuthProvider>
         <Routes>
+          <Route path="/" element={<Navigation />}>
             <Route
-              path="/"
+              index
               element={
                 <PrivateRoute>
                   <Home />
@@ -45,6 +41,7 @@ function MainRoute() {
                 </PrivateRoute>
               }
             />
+          </Route>
           <Route element={<PublicRoute />}>
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />

@@ -12,5 +12,3 @@ const PublicRoute = () => {
 };
 
 export default PublicRoute;
-
-//https://zenn.dev/rinka/articles/6ed09e0c87838b
