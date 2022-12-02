@@ -1,30 +1,29 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Spin } from 'antd';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import { Button, Form, Input, Spin } from 'antd'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 import loginStyle from '../styles/login.module.scss'
-import { auth } from '../firebase';
-import { useAuthContext } from '../AuthContext';
-
+import { auth } from '../firebase'
+import { useAuthContext } from '../AuthContext'
 
 function LogIn() {
   const navigate = useNavigate()
-  const { user } = useAuthContext();
-  const [isLogin, setIsLogin] = useState(null);
+  const { user } = useAuthContext()
+  const [isLoading, setIsLoading] = useState(true)
   const [input, setInput] = useState({
     email: null,
-    password: null
+    password: null,
   })
 
   const handleOnChange = (e) => {
-    const {name, value} = e.target
-    setInput(prevState => {
+    const { name, value } = e.target
+    setInput((prevState) => {
       return {
         ...prevState,
-        [name]: value
+        [name]: value,
       }
     })
   }
@@ -32,14 +31,11 @@ function LogIn() {
   const handleOnSubmit = () => {
     signInWithEmailAndPassword(auth, input.email, input.password)
     navigate('/')
-  };
+  }
 
-  // if(!isLogin){
-  //   return <Spin size="large" className={loginStyle["Login-spin"]} />
-  // }else{}
-    return (
-      <>
-        <div className={loginStyle["Login-body"]}>
+  return (
+    <>
+      <div className={loginStyle['Login-body']}>
           <h2 className={loginStyle['Login-title']}>Login</h2>
           <Form
             name="normal_login"
@@ -54,14 +50,22 @@ function LogIn() {
               labelAlign="left"
               rules={[{ required: true, message: 'Please input your E-mail!' }]}
             >
-              <Input name="email" value={input.email} onChange={handleOnChange} prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+              <Input
+                name="email"
+                value={input.email}
+                onChange={handleOnChange}
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                placeholder="Username"
+              />
             </Form.Item>
             <Form.Item
               name="password"
               label="Password"
               labelCol={{ span: 7 }}
               labelAlign="left"
-              rules={[{ required: true, message: 'Please input your Password!' }]}
+              rules={[
+                { required: true, message: 'Please input your Password!' },
+              ]}
             >
               <Input
                 name="password"
@@ -72,21 +76,27 @@ function LogIn() {
                 placeholder="Password"
               />
             </Form.Item>
-  
+
             <Form.Item className={loginStyle['Login-btn']}>
-              <Button type="primary" htmlType="submit" className="login-form-button" size="large">
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="login-form-button"
+                size="large"
+              >
                 Log in
               </Button>
               <br />
             </Form.Item>
             <Form.Item className={loginStyle['Login-register-link']}>
-              <Link to={"/signup"}>Register now from here!</Link>
+              <Link to={'/signup'}>Register now from here!</Link>
             </Form.Item>
           </Form>
         </div>
-      </>
-    );
-
+    </>
+  )
 }
 
 export default LogIn
+
+//https://tech-lab.sios.jp/archives/31117

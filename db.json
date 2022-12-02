@@ -9,10 +9,8 @@
     },
     {
       "bookmark": {
-        "url": "https://roadmap.sh/react",
-        "title": "react roadmap",
-        "category": "tech",
-        "date": "11/1/2022"
+        "title": "React roadmap",
+        "category": "tech"
       },
       "id": 2
     },

@@ -11,6 +11,7 @@ import { AuthProvider } from '../AuthContext'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 
+
 function MainRoute() {
   return (
     <>
@@ -43,6 +44,7 @@ function MainRoute() {
             />
           </Route>
           <Route element={<PublicRoute />}>
+            {}
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
           </Route>

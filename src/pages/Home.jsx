@@ -16,7 +16,6 @@ function Home() {
     })
   }, [])
 
-  const setGreeting = () => {}
   const getDate = new Date()
   const currTime = getDate.getHours()
 
